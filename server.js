@@ -28,9 +28,7 @@ app.get("/", (request, response) => {
   //console.log("Your app is listening on port " + listener.address().port);
 //});
 https.createServer(options, function (req, res) {
-  res.writeHead(200);
-  res.end("hello world\n");
-}).listen(8000);
+}).listen(8080);
 
 //****************************
 // added code for Password Import Inline hook
