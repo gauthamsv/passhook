@@ -1,0 +1,50 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+
+    <title>Okta Password Import Inline Hook</title>
+
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+
+  </head>
+  <body>
+    <header>
+      <h1>Okta Password Import Inline Hook: Verify User Credentials and Import Password to Okta Org</h1>
+    </header>
+
+    <main>
+      <h2>Complete overview and step-by-step guide available at <a href="https://developer.okta.com/docs/guides/password-import-inline-hook/nodejs/overview/">Password Import Inline Hook</a></h2>
+
+      <p>A Node.js application written to receive Password Import Inline Hook requests from Okta, parse password credentials, and, if verified, import passwords back into the Okta org.<br/></p>
+      <p>
+       At a high-level, the following workflow occurs:
+      <ul>
+        <li>User profiles are imported into an Okta org that use the Password Import Hook.</li>
+        <li>The Password Import Inline Hook triggers on first sign-in request by a user.</li>
+        <li>The external service evaluates the Password Import Inline Hook request's user credentials against the data store.</li>
+        <li>If the credentials are verified, the external service responds to Okta with a command to import the password and sign in the user.</li>
+        <li>If the credentials are not verified, the user is not signed-in or imports the password.</li>
+      </ul>
+      </p>
+    
+    See <a href="https://developer.okta.com/docs/reference/password-hook/">Password Import Inline Hook Reference</a> for reference JSON documentation.
+      
+    </main>
+
+    <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js" defer></script>
+  </body>
+</html>
