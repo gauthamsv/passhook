@@ -24,8 +24,8 @@ app.get("/", (request, response) => {
 });
 
 // listen for requests :)
-const port = Process.env.PORT || 3000 ;
-const listener = app.listen(process.env.PORT, () => {
+//const port = process.env.PORT || 3000 ;
+const listener = app.listen(process.env.PORT || 3000 , () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 //https.createServer(options, function (req, res) {
