@@ -1,11 +1,11 @@
 //https
-const https = require('https');
-const fs = require('fs');
+//const https = require('https');
+//const fs = require('fs');
 
-const options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
+//const options = {
+  //key: fs.readFileSync('key.pem'),
+  //cert: fs.readFileSync('cert.pem')
+//};
 // server.js
 // where your node app starts
 
@@ -24,11 +24,12 @@ app.get("/", (request, response) => {
 });
 
 // listen for requests :)
-//const listener = app.listen(process.env.PORT, () => {
-  //console.log("Your app is listening on port " + listener.address().port);
-//});
-https.createServer(options, function (req, res) {
-}).listen(8080);
+const port = Process.env.PORT || 3000 ;
+const listener = app.listen(process.env.PORT, () => {
+  console.log("Your app is listening on port " + listener.address().port);
+});
+//https.createServer(options, function (req, res) {
+//}).listen(8080);
 
 //****************************
 // added code for Password Import Inline hook
