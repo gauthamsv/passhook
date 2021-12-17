@@ -67,7 +67,7 @@ const listener = app.listen(process.env.PORT || 3000 , () => {
 //****************************
 // added code for Password Import Inline hook
 
-//const users = require('./users');
+const users = require('/user');
 const { body, validationResult } = require('express-validator');
 
 const bodyParser = require('body-parser');
