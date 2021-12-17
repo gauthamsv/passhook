@@ -10,6 +10,12 @@ GLITCH_DEBUGGER=true
 SECRET=
 MADE_WITH=
 
+#DB_HOST = 127.0.0.1
+#DB_USER = root
+#DB_PASSWORD = Svgias@123
+#DB_DATABASE = userdb
+#DB_PORT = 3306
+
 # note: .env is a shell file so there can't be spaces around =
  # Scrubbed by Glitch 2020-11-05T16:17:07+0000
  # Scrubbed by Glitch 2021-12-14T12:20:24+0000
