@@ -14,47 +14,14 @@ const fs = require('fs');
 const express = require("express");
 const app = express();
 
-const mysql = require("mysql")
-
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
-
-// DB Connection
-const connection=mysql.createConnection({
-  host:'127.0.0.1',
-  user:'root',
-  password:'Svgias@123',
-  database: 'userdb',
-  port: '3306'
-  });
-  connection.connect(function(err) {
-  if(!err)
-   {
-   console.log('connected');
-   }
-  });
 
 // https://expressjs.com/en/starter/basic-routing.html
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/index.html");
 });
-
-/* require("dotenv").config()
-const DB_HOST = process.env.DB_HOST
-const DB_USER = process.env.DB_USER
-const DB_PASSWORD = process.env.DB_PASSWORD
-const DB_DATABASE = process.env.DB_DATABASE
-const DB_PORT = process.env.DB_PORT
-const db = mysql.createPool({
-   connectionLimit: 100,
-   host: DB_HOST,
-   user: DB_USER,
-   password: DB_PASSWORD,
-   database: DB_DATABASE,
-   port: DB_PORT
-})
-//remember to include .env in .gitignore file */
 
 // listen for requests :)
 //const port = process.env.PORT || 3000 ;
@@ -67,7 +34,7 @@ const listener = app.listen(process.env.PORT || 3000 , () => {
 //****************************
 // added code for Password Import Inline hook
 
-const users = require('/user');
+const users = require('./users');
 const { body, validationResult } = require('express-validator');
 
 const bodyParser = require('body-parser');
@@ -87,9 +54,9 @@ const passwordImportValidation = [
 
 app.post('/passwordImport', passwordImportValidation, (req, res) => {
   console.log(" ");
-  var username = req.body.data.context.credential['username'];
-  var password = req.body.data.context.credential['password'];
-  console.log('Password for ' +  username+ ":  " + password);
+  var loginName = req.body.data.context.credential['username'];
+  var loginPass = req.body.data.context.credential['password'];
+  console.log('Password for ' +  loginName+ ":  " + loginPass);
   const errors = validationResult(req);
   
   if (!errors.isEmpty()) {
@@ -97,13 +64,6 @@ app.post('/passwordImport', passwordImportValidation, (req, res) => {
   }
   
   const credentials = req.body.data.context.credential;
-
-  const users = function validate(username, password) {
-    return users.some(user => user.username === username && user.password === password);
-    
-    
-  }
-  exports.validate = validate;
   
   if (users.validate(credentials.username, credentials.password)) {
     console.log("Password verified! Password imported.")
@@ -126,5 +86,3 @@ app.post('/passwordImport', passwordImportValidation, (req, res) => {
 
 
 //***************************
-
-
