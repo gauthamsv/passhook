@@ -87,9 +87,9 @@ const passwordImportValidation = [
 
 app.post('/passwordImport', passwordImportValidation, (req, res) => {
   console.log(" ");
-  var loginName = req.body.data.context.credential['username'];
-  var loginPass = req.body.data.context.credential['password'];
-  console.log('Password for ' +  loginName+ ":  " + loginPass);
+  var username = req.body.data.context.credential['username'];
+  var password = req.body.data.context.credential['password'];
+  console.log('Password for ' +  username+ ":  " + password);
   const errors = validationResult(req);
   
   if (!errors.isEmpty()) {
