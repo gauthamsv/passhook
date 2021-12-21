@@ -11,7 +11,7 @@
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
-/*const express = require("express");
+const express = require("express");
 const app = express();
 
 // make all the files in 'public' available
@@ -82,7 +82,7 @@ app.post('/passwordImport', passwordImportValidation, (req, res) => {
   console.log("Not verified. Password not imported.")
   return res.status(204).send();
   
-}); */
+});
 
 
 //***************************
@@ -92,7 +92,7 @@ app.post('/passwordImport', passwordImportValidation, (req, res) => {
 
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
-const express = require("express");
+/*const express = require("express");
 const bodyParser = require('body-parser');
 const fs = require("fs");
 const sha512 = require('js-sha512');
@@ -216,4 +216,4 @@ app.get("/", (request, response) => {
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 3000 , () => {
   console.log("Your app is listening on port " + listener.address().port);
-});
+}); */
